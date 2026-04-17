@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy Policy — ClearTerms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">ClearTerms</a>
+    <nav>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div style="clear:both"></div>
+  </header>
+
+  <h1>Privacy Policy</h1>
+  <p class="muted">Last updated: 2026-04-17.</p>
+
+  <p>ClearTerms is a document explainer: you upload a document, we return a plain-English summary. This policy describes exactly what happens to that document and anything else we can see.</p>
+
+  <h2>Who we are</h2>
+  <p>ClearTerms is published by HAS Deploy. Support: <a href="mailto:tony@medbillresolve.com">tony@medbillresolve.com</a>.</p>
+
+  <h2>Data we collect <em>about you</em></h2>
+  <ul>
+    <li><strong>A random install ID.</strong> On first launch, the app creates an anonymous UUID and stores it in iOS preferences. That ID identifies this install to our backend so credits can be tracked per device. It is not linked to your Apple ID, name, email, IP address, or any advertising identifier.</li>
+    <li><strong>No account.</strong> We do not ask for, store, or use an email address, phone number, or profile picture.</li>
+    <li><strong>No analytics SDK, no ad SDK.</strong></li>
+  </ul>
+
+  <h2>Data we receive <em>from your document</em></h2>
+  <p>When you tap "Analyze" the app:</p>
+  <ol>
+    <li>Uploads the raw document to our server over HTTPS, into an Amazon S3 bucket encrypted at rest with AES-256.</li>
+    <li>Our server extracts the text of the document and sends that text to Anthropic's Claude API for analysis.</li>
+    <li>The analysis text is stored in our Amazon DynamoDB database so you can re-open it later.</li>
+    <li><strong>The raw uploaded file is automatically deleted from S3 within 24 hours</strong> by an S3 Lifecycle rule. The extracted text is not separately retained.</li>
+  </ol>
+
+  <h2>What Anthropic does with your document text</h2>
+  <p>Per Anthropic's published policies at the time this policy was last updated, data submitted through their API is not used to train their models. See <a href="https://www.anthropic.com/legal/privacy">Anthropic's Privacy Policy</a> for the latest. If that changes, we will update this page.</p>
+
+  <h2>Purchases</h2>
+  <p>In-app purchases are processed by Apple via StoreKit. We see a transaction ID and product ID; we never see your name, address, or payment method.</p>
+
+  <h2>What we share</h2>
+  <p>Nothing, except:</p>
+  <ul>
+    <li>Document text → Anthropic's Claude API (for analysis).</li>
+    <li>Purchase receipts → Apple's StoreKit verifyReceipt endpoint (to confirm credit purchases).</li>
+  </ul>
+  <p>We do not sell, rent, or trade data. We do not run third-party analytics.</p>
+
+  <h2>Children</h2>
+  <p>ClearTerms is rated 17+ and is not directed at children under 13.</p>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>Uninstall the app to delete the local install ID and any cached analysis.</li>
+    <li>Email <a href="mailto:tony@medbillresolve.com">tony@medbillresolve.com</a> to ask us to delete any stored analyses associated with a specific install ID (include that ID in the message).</li>
+  </ul>
+
+  <h2>Security</h2>
+  <p>TLS 1.2+ in transit. AES-256 at rest in S3. IAM least-privilege on all server code. No root-user access keys are embedded in the app.</p>
+
+  <h2>Changes</h2>
+  <p>We will update this page with a new "Last updated" date when anything material changes.</p>
+
+  <footer>
+    &copy; 2026 ClearTerms &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="support.html">Support</a>
+  </footer>
+</body>
+</html>
