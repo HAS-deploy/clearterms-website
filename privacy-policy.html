@@ -18,7 +18,7 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 2026-04-17.</p>
+  <p class="muted">Last updated: 2026-04-24.</p>
 
   <p>TermPlainly is a document explainer: you upload a document, we return a plain-English summary. This policy describes exactly what happens to that document and anything else we can see.</p>
 
@@ -29,7 +29,7 @@
   <ul>
     <li><strong>A random install ID.</strong> On first launch, the app creates an anonymous UUID and stores it in iOS preferences. That ID identifies this install to our backend so credits can be tracked per device. It is not linked to your Apple ID, name, email, IP address, or any advertising identifier.</li>
     <li><strong>No account.</strong> We do not ask for, store, or use an email address, phone number, or profile picture.</li>
-    <li><strong>No analytics SDK, no ad SDK.</strong></li>
+    <li><strong>Anonymous product analytics (PostHog).</strong> Starting with version 1.0.2, the app sends anonymous, aggregated usage events to PostHog (us.i.posthog.com) — examples: "onboarding started", "document uploaded", "analysis completed", "credits purchased". Events include only the install ID, the event name, and counts/durations. We do not send the contents of your document, your file name, or any advertising identifier. Autocapture is off; session recording is off; cross-app tracking is off. No ad SDK.</li>
   </ul>
 
   <h2>Data we receive <em>from your document</em></h2>
@@ -51,9 +51,11 @@
   <p>Nothing, except:</p>
   <ul>
     <li>Document text → Anthropic's Claude API (for analysis).</li>
-    <li>Purchase receipts → Apple's StoreKit verifyReceipt endpoint (to confirm credit purchases).</li>
+    <li>Purchase receipts → Apple's StoreKit verification (to confirm credit purchases).</li>
+    <li>Anonymous usage events → PostHog (described above).</li>
+    <li>Storage and compute → Amazon Web Services (S3, DynamoDB, Lambda; our backend hosting).</li>
   </ul>
-  <p>We do not sell, rent, or trade data. We do not run third-party analytics.</p>
+  <p>We do not sell, rent, or trade data. We do not run advertising trackers. The third-party services listed above process data only to provide the function each one provides — Anthropic does not use TermPlainly traffic to train their models, and PostHog is configured to not capture session recordings or cross-app identifiers.</p>
 
   <h2>Children</h2>
   <p>TermPlainly is rated 17+ and is not directed at children under 13.</p>
